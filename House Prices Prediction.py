@@ -12,8 +12,8 @@ import time
 start_time = time.time()
 
 #import train and test
-train = pd.read_csv("/Users/alfonsodamelio/Desktop/KAGGLE/train.csv")
-test = pd.read_csv("/Users/alfonsodamelio/Desktop/KAGGLE/test.csv")
+train = pd.read_csv("/Users/Dario/Desktop/Kaggle/train.csv")
+test = pd.read_csv("/Users/Dario/Desktop/Kaggle/test.csv")
 
 
 #histogram Saleprice variable
@@ -209,7 +209,7 @@ plt.show()'''
 result = pd.DataFrame(columns= ["Id","SalePrice"])
 result["SalePrice"] = pred1
 result["Id"] = range(1461,2920)
-result.to_csv("/Users/alfonsodamelio/Desktop/gradient.csv", index = False)
+result.to_csv("/Users/Dario/Desktop/gradient.csv", index = False)
 
 # # Ridge
 from sklearn.linear_model import RidgeCV,Ridge
@@ -237,7 +237,7 @@ plt.show()'''
 result = pd.DataFrame(columns= ["Id","SalePrice"])
 result["SalePrice"] = pred2
 result["Id"] = range(1461,2920)
-result.to_csv("/Users/alfonsodamelio/Desktop/ridge.csv", index = False)
+result.to_csv("/Users/Dario/Desktop/ridge.csv", index = False)
 
 # # LGBoost
 #importing package Lightgbm
@@ -279,7 +279,7 @@ plt.show()
 result = pd.DataFrame(columns= ["Id","SalePrice"])
 result["SalePrice"] = pred3
 result["Id"] = range(1461,2920)
-result.to_csv("/Users/alfonsodamelio/Desktop/lgb.csv", index = False)
+result.to_csv("/Users/Dario/Desktop/lgb.csv", index = False)
 
 # # Lasso
 import warnings
@@ -308,17 +308,17 @@ plt.show()'''
 result = pd.DataFrame(columns= ["Id","SalePrice"])
 result["SalePrice"] = pred4
 result["Id"] = range(1461,2920)
-result.to_csv("/Users/alfonsodamelio/Desktop/Lasso.csv", index = False)
+result.to_csv("/Users/Dario/Desktop/Lasso.csv", index = False)
 
 # # Final mean 
 # score = 0.11627
 
 #so here the final step.
 #After saved all the prediction in a csv File we import them
-gradient = pd.read_csv("/Users/alfonsodamelio/Desktop/gradient.csv")
-ridge = pd.read_csv("/Users/alfonsodamelio/Desktop/ridge.csv")
-lgb = pd.read_csv("/Users/alfonsodamelio/Desktop/lgb.csv")
-lasso=pd.read_csv("/Users/alfonsodamelio/Desktop/lasso.csv")
+gradient = pd.read_csv("/Users/Dario/Desktop/gradient.csv")
+ridge = pd.read_csv("/Users/Dario/Desktop/ridge.csv")
+lgb = pd.read_csv("/Users/Dario/Desktop/lgb.csv")
+lasso=pd.read_csv("/Users/Dario/Desktop/lasso.csv")
 
 #keeping only the SalePrice prediction, without Id
 gradient = list(gradient.SalePrice)
@@ -335,7 +335,7 @@ for i,j,k,l in final:
 result = pd.DataFrame(columns= ["Id","SalePrice"])
 result["SalePrice"] = final1
 result["Id"] = range(1461,2920)
-result.to_csv("/Users/alfonsodamelio/Desktop/pred.csv", index = False)
+result.to_csv("/Users/Dario/Desktop/pred.csv", index = False)
 
 
 
